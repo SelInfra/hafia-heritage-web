@@ -1,0 +1,50 @@
+/* ===== Styles d'impression PDF ===== */
+@media print {
+  /* Masquer les éléments inutiles */
+  .header,
+  .nav,
+  .hero,
+  .btn-calculer,
+  .calculateur > .card:not(:last-of-type),
+  footer,
+  button,
+  .btn-calculer {
+    display: none !important;
+  }
+
+  /* Afficher uniquement les résultats */
+  body { background: white; font-family: 'Times New Roman', serif; }
+  .app { min-height: auto; }
+  .main { max-width: 100%; padding: 0; margin: 0; }
+
+  /* En-tête du document */
+  .resultats::before {
+    content: '';
+    display: block;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #1a6b3c;
+    margin-bottom: 20px;
+  }
+
+  /* Cards sans ombres */
+  .card, .resultats-header {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    break-inside: avoid;
+  }
+
+  .resultats-header {
+    background: #1a6b3c !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .heritier-resultat { break-inside: avoid; }
+  .hr-bar { background: #1a6b3c !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  @page {
+    margin: 15mm 20mm;
+    size: A4;
+  }
+}
